@@ -1,7 +1,7 @@
 const Header = (props) => {
   return (
     <header className="header">
-      <h1>{props.course}</h1>
+      <h1>{props.course.name}</h1>
     </header>
   )
 }
@@ -18,9 +18,9 @@ const Part = (props) => {
 const Content = (props) => {
   return (
     <ul className="content">
-      <Part part={props.parts[0]} />
-      <Part part={props.parts[1]} />
-      <Part part={props.parts[2]} />
+      <Part part={props.course.parts[0]} />
+      <Part part={props.course.parts[1]} />
+      <Part part={props.course.parts[2]} />
     </ul>
   )
 }
@@ -30,7 +30,7 @@ const Total = (props) => {
     <p className="total">
       <span>Number of units</span>
       <strong>
-        {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}
+        {props.course.parts[0].exercises + props.course.parts[1].exercises + props.course.parts[2].exercises}
       </strong>
     </p>
   )
@@ -47,21 +47,23 @@ const Footer = (props) => {
 }
 
 const App = () => {
-  const course = 'CSIT340 Industry Elective 1'
-  const parts = [
-    {
-      name: 'IT332 Capstone and Research 1',
-      exercises: 3
-    },
-    {
-      name: 'CSIT327 Information Management 2',
-      exercises: 3
-    },
-    {
-      name: 'IT365 Data Analytics',
-      exercises: 3
-    }
-  ]
+  const course = {
+    name: 'CSIT340 Industry Elective 1',
+    parts: [
+      {
+        name: 'IT332 Capstone and Research 1',
+        exercises: 3
+      },
+      {
+        name: 'CSIT327 Information Management 2',
+        exercises: 3
+      },
+      {
+        name: 'IT365 Data Analytics',
+        exercises: 3
+      }
+    ]
+  }
   const studentName = 'Khylla Laine C. Menardo'
   const courseCode = 'CSIT340'
   const section = 'G05'
@@ -69,8 +71,8 @@ const App = () => {
   return (
     <main className="card">
       <Header course={course} />
-      <Content parts={parts} />
-      <Total parts={parts} />
+      <Content course={course} />
+      <Total course={course} />
       <Footer name={studentName} courseCode={courseCode} section={section} />
     </main>
   )
