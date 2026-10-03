@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  padding: 48px 16px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  color: #222;
+  background: #f3f5f8;
+}
+
+.card {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 28px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.06);
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-size: 1.4rem;
+  color: #1d3f7a;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: part;
+}
+
+.part {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  counter-increment: part;
+}
+
+.part::before {
+  content: counter(part);
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #2f6fdf;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.part-name {
+  flex: 1;
+}
+
+.part-units {
+  font-weight: 600;
+  color: #555;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 0 0;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #e8f0fd;
+  color: #1d3f7a;
+  font-weight: 600;
+}
+
+.footer {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.footer p {
+  margin: 0;
+}
